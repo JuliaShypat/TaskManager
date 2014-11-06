@@ -1,3 +1,29 @@
+<?php
+$server = 'localhost';
+$user = 'root';
+$password ='';
+$db='admin';
+
+/*INSERT INTO `employee`(`employee_id`, `name`, `second_name`, `surname`, `date_of_birth`, `pesel`, `post`, `department`, `status`, `date_of_change`, `login`, `slary`) VALUES (0,'Adam','John','Nowak',2008-11-11,0123456789,1,3,1,2014-11-01,'test',2000)*/
+$conn = new mysqli($server, $user, $password, $db);
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+} 
+
+$sql = "INSERT INTO `employee`(`name`, `second_name`, `surname`, `date_of_birth`, `pesel`, `post`, `department`, `status`, `date_of_change`, `login`, `slary`)
+ VALUES ('Adam','John','Nowak',2008-11-11,0123456789,1,3,1,2014-11-01,'test',2000)";
+
+if ($conn->query($sql) === TRUE) {
+    echo "New record created successfully";
+} else {
+    echo "Error: " . $sql . "<br>" . $conn->error;
+}
+
+$conn->close();
+
+?>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -21,19 +47,19 @@
 			<ul >
 			
 					<li id="li_1" >
-		<label class="description" for="element_1">Name </label>
+		<label class="description" for="name">Name </label>
 		<div>
-			<input id="element_1" name="element_1" class="element text medium" type="text" maxlength="255" value=""/> 
+			<input id="name" name="name" class="element text medium" type="text" maxlength="255" value=""/> 
 		</div> 
 		</li>		<li id="li_2" >
-		<label class="description" for="element_2">Second name </label>
+		<label class="description" for="secondName">Second name </label>
 		<div>
-			<input id="element_2" name="element_2" class="element text medium" type="text" maxlength="255" value=""/> 
+			<input id="secondName" name="secondName" class="element text medium" type="text" maxlength="255" value=""/> 
 		</div> 
 		</li>		<li id="li_3" >
-		<label class="description" for="element_3">Surname </label>
-		<div>
-			<input id="element_3" name="element_3" class="element text medium" type="text" maxlength="255" value=""/> 
+		<label class="description" for="surname">Surname </label>
+		<div> 
+			<input id="surname" name="surname" class="element text medium" type="text" maxlength="255" value=""/> 
 		</div> 
 		</li>		<li id="li_4" >
 		<label class="description" for="element_4">Date of birth </label>
